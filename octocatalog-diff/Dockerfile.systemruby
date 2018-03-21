@@ -1,0 +1,12 @@
+FROM centos:7
+MAINTAINER Simon Lauger <simon@lauger.de>
+
+LABEL org.label-schema.url="https://github.com/slauger/dockerfiles" \
+      org.label-schema.name="octocatalog-diff"
+
+RUN yum upgrade -y && \
+    yum -y install ruby ruby-devel make cmake gcc && \
+    gem install octocatalog-diff && \
+    yum remove -y ruby-devel make cmake gcc && \
+    yum clean all
+
