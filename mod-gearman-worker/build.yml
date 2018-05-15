@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: mod-gearman-worker
+  name: mod-gearman-worker
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: mod-gearman-worker:latest
+  resources: {}
+  source:
+    git:
+      ref: master
+      uri: https://github.com/slauger/dockerfiles.git
+    contextDir: mod-gearman-worker/
+  strategy:
+    dockerStrategy:
+      from:
+        kind: DockerImage
+        name: centos:latest
+    type: Docker
