@@ -17,4 +17,4 @@ RUN yum install -y "http://yum.puppetlabs.com/puppet${PUPPET_VERSION}/puppet${PU
 
 RUN /opt/puppetlabs/puppet/bin/gem install octocatalog-diff --no-ri --no-rdoc
 
-CMD /opt/puppetlabs/puppet/bin/octocatalog-diff
+ENTRYPOINT ["/opt/puppetlabs/puppet/bin/octocatalog-diff"]
